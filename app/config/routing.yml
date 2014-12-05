@@ -1,0 +1,4 @@
+ss_poker:
+    resource: "@SSPokerBundle/Resources/config/routing.yml"
+    prefix:   /
+

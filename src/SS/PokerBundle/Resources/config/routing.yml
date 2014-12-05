@@ -1,0 +1,3 @@
+ss_poker_homepage:
+    path:     /
+    defaults: { _controller: SSPokerBundle:Default:index }
