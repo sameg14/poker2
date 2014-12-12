@@ -8,7 +8,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class GameController extends Controller
 {
-    public function indexAction(){
+    /**
+     * Welcome screen
+     */
+    public function indexAction()
+    {
 
     }
 }

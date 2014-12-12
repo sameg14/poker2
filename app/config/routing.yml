@@ -1,4 +1,3 @@
-ss_poker:
-    resource: "@SSPokerBundle/Resources/config/routing.yml"
+ss_game:
+    resource: "@SSGameBundle/Resources/config/routing.yml"
     prefix:   /
-
