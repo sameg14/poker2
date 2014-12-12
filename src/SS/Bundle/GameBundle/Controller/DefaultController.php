@@ -8,6 +8,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends Controller
 {
+    /**
+     * Show list of active games a user can join
+     * @return Response
+     */
     public function indexAction()
     {
         return $this->render('SSGameBundle:Default:index.html.twig');

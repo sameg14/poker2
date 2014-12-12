@@ -1,6 +1,6 @@
-ss_poker_homepage:
-    path:     /
-    defaults: { _controller: "SSGameBundle:Default:index" }
+ss_game:
+    resource: "@SSGameBundle/Resources/config/routing.yml"
+    prefix:   /
 
 _wdt:
     resource: "@WebProfilerBundle/Resources/config/routing/wdt.xml"
