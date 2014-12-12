@@ -16,7 +16,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new SS\PokerBundle\SSPokerBundle(),
             new SS\Bundle\GameBundle\SSGameBundle(),
         );
 
@@ -35,14 +34,4 @@ class AppKernel extends Kernel
         $loader->load(__DIR__ . '/config/config_' . $this->getEnvironment() . '.yml');
 
     }
-
-//    public function getCacheDir()
-//    {
-//        return './app/cache';
-//    }
-//
-//    public function getLogDir()
-//    {
-//        return '.app/logs';
-//    }
 }

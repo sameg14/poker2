@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="{{ _charset }}" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>{% block title %}SS Poker{% endblock %}</title>
+    <link href="{{ asset('bundles/framework/css/structure.css', absolute=true) }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/framework/css/body.css', absolute=true) }}" rel="stylesheet" />
+    <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
+    {% block head %}{% endblock %}
+</head>
+<body>
+<div id="content">
+    <div class="header clear-fix">
+        {% block content_header %}
+        {% endblock %}
+    </div>
+
+    <div class="sf-reset">
+        {% block body %}{% endblock %}
+    </div>
+</div>
+</body>
+</html>
+
+
+
