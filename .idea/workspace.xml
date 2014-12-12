@@ -1,94 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a218d5a-3539-4c2a-8e8c-2e1f0f1acfe2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/fonts/FontAwesome.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/img/portfolio/cabin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/img/portfolio/cake.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/img/portfolio/circus.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/fonts/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/fonts/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/fonts/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/img/portfolio/game.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/img/profile.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/img/portfolio/safe.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/img/portfolio/submarine.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/scss/_bordered-pulled.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/scss/_core.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/scss/_fixed-width.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/scss/_icons.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/scss/_larger.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/scss/_list.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/scss/_mixins.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/scss/_path.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/scss/_rotated-flipped.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/scss/_spinning.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/scss/_stacked.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/scss/_variables.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/less/bordered-pulled.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/js/cbpAnimatedHeader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/js/cbpAnimatedHeader.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/js/classie.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/js/contact_me.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/less/core.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/less/fixed-width.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/css/font-awesome.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/less/font-awesome.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/css/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/scss/font-awesome.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/fonts/fontawesome-webfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/css/freelancer.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/js/freelancer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/less/freelancer.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/less/icons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/js/jqBootstrapValidation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/js/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/less/larger.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/views/layout.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/less/list.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/less/mixins.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/less/mixins.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/less/path.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/less/rotated-flipped.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/less/spinning.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/less/stacked.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/font-awesome-4.1.0/less/variables.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/less/variables.less" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/Controller/DefaultController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/Controller/GameController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/DependencyInjection/Configuration.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/DependencyInjection/SSPokerExtension.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/Resources/config/routing.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/Resources/config/services.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/Resources/translations/messages.fr.xlf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/Resources/views/Default/index.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/Resources/views/Game/index.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/Resources/views/layout.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/SSPokerBundle.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/Tests/Controller/DefaultControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/Tests/Controller/GameControllerTest.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/Entity/Game.php" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Entity/Game.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/Entity/GameRepository.php" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Entity/GameRepository.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/SS/PokerBundle/Resources/doc/index.rst" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/public/css/poker.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app_dev.php" afterPath="$PROJECT_DIR$/web/app_dev.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/SS/Bundle/GameBundle/Resources/views/Default/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing_dev.yml" afterPath="$PROJECT_DIR$/app/config/routing_dev.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="2a218d5a-3539-4c2a-8e8c-2e1f0f1acfe2" name="Default" comment="" />
     <ignored path="poker2.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -147,8 +60,8 @@
       <file leaf-file-name="AppKernel.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.025085518" vertical-offset="0" max-vertical-offset="924">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.87799317" vertical-offset="0" max-vertical-offset="924">
+              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
               <folding>
                 <element signature="e#7#47#0#PHP" expanded="true" />
               </folding>
@@ -688,8 +601,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.025085518" vertical-offset="0" max-vertical-offset="924">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.87799317" vertical-offset="0" max-vertical-offset="924">
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
           <folding>
             <element signature="e#7#47#0#PHP" expanded="true" />
           </folding>
