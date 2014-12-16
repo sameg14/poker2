@@ -1,6 +1,6 @@
 <?php
 
-namespace SS\PokerBundle\Entity;
+namespace SS\GameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Game
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="SS\PokerBundle\Entity\GameRepository")
+ * @ORM\Entity(repositoryClass="SS\GameBundle\Entity\GameRepository")
  */
 class Game
 {
@@ -40,7 +40,6 @@ class Game
      * @ORM\Column(name="started_on", type="datetime")
      */
     private $startedOn;
-
 
     /**
      * Get id
@@ -96,5 +95,21 @@ class Game
     public function getStartedOn()
     {
         return $this->startedOn;
+    }
+
+    /**
+     * @return int
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param int $active
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
     }
 }

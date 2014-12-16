@@ -1,6 +1,6 @@
 <?php
 
-namespace SS\PokerBundle\Entity;
+namespace SS\GameBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 

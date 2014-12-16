@@ -16,7 +16,7 @@
       <parameter key="AsseticBundle">Symfony\Bundle\AsseticBundle\AsseticBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
-      <parameter key="SSPokerBundle">SS\PokerBundle\SSPokerBundle</parameter>
+      <parameter key="SSGameBundle">SS\GameBundle\SSGameBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -2522,7 +2522,7 @@
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
             <argument type="collection">
-              <argument key="SSPokerBundle">SS\PokerBundle\Entity</argument>
+              <argument key="SSGameBundle">SS\GameBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -2542,11 +2542,11 @@
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
-                        <argument>/var/www/html/poker2/src/SS/PokerBundle/Entity</argument>
+                        <argument>/var/www/html/poker2/src/SS/GameBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
-                  <argument>SS\PokerBundle\Entity</argument>
+                  <argument>SS\GameBundle\Entity</argument>
                 </call>
               </service>
             </argument>
@@ -2987,7 +2987,7 @@
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/poker2/src/SS/PokerBundle/Resources/views</argument>
+        <argument>/var/www/html/poker2/src/SS/GameBundle/Resources/views</argument>
         <argument>SSPoker</argument>
       </call>
       <call method="addPath">

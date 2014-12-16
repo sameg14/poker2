@@ -42,7 +42,7 @@ class ap_DevDebugProjectContainer extends Container
                 'AsseticBundle' => 'Symfony\\Bundle\\AsseticBundle\\AsseticBundle',
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
-                'SSPokerBundle' => 'SS\\PokerBundle\\SSPokerBundle',
+                'SSGameBundle' => 'SS\\GameBundle\\SSGameBundle',
                 'DebugBundle' => 'Symfony\\Bundle\\DebugBundle\\DebugBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
@@ -1309,10 +1309,10 @@ class ap_DevDebugProjectContainer extends Container
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
         $a = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
-        $a->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => (dirname(dirname(dirname(__DIR__))).'/src/SS/PokerBundle/Entity'))), 'SS\\PokerBundle\\Entity');
+        $a->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => (dirname(dirname(dirname(__DIR__))).'/src/SS/GameBundle/Entity'))), 'SS\\GameBundle\\Entity');
 
         $b = new \Doctrine\ORM\Configuration();
-        $b->setEntityNamespaces(array('SSPokerBundle' => 'SS\\PokerBundle\\Entity'));
+        $b->setEntityNamespaces(array('SSGameBundle' => 'SS\\GameBundle\\Entity'));
         $b->setMetadataCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_metadata_cache'));
         $b->setQueryCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_query_cache'));
         $b->setResultCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_result_cache'));
@@ -3877,7 +3877,7 @@ class ap_DevDebugProjectContainer extends Container
         $instance->addPath((dirname(dirname(dirname(__DIR__))).'/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views'), 'Twig');
         $instance->addPath((dirname(dirname(dirname(__DIR__))).'/vendor/symfony/swiftmailer-bundle/Resources/views'), 'Swiftmailer');
         $instance->addPath((dirname(dirname(dirname(__DIR__))).'/vendor/doctrine/doctrine-bundle/Resources/views'), 'Doctrine');
-        $instance->addPath((dirname(dirname(dirname(__DIR__))).'/src/SS/PokerBundle/Resources/views'), 'SSPoker');
+        $instance->addPath((dirname(dirname(dirname(__DIR__))).'/src/SS/GameBundle/Resources/views'), 'SSPoker');
         $instance->addPath((dirname(dirname(dirname(__DIR__))).'/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views'), 'Debug');
         $instance->addPath((dirname(dirname(dirname(__DIR__))).'/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views'), 'WebProfiler');
         $instance->addPath((dirname(dirname(dirname(__DIR__))).'/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views'), 'SensioDistribution');
