@@ -16,4 +16,9 @@ class DefaultController extends Controller
     {
         return $this->render('SSGameBundle:Default:index.html.twig');
     }
+
+    public function loginAction(){
+
+        return $this->render('SSGameBundle:Default:login.html.twig');
+    }
 }

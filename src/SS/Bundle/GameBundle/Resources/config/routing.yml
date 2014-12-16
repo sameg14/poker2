@@ -1,3 +1,7 @@
 ss_poker_homepage:
     path:     /
     defaults: { _controller: SSGameBundle:Default:index }
+
+fb_demo_login:
+    path: /login
+    defaults : { _controller: SSGameBundle:Default:login }
