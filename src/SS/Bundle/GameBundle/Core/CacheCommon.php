@@ -21,12 +21,14 @@ class CacheCommon
 
     /**
      * Should cache stampeding be turned on
+     *
      * @var bool
      */
     private $stampedeProtection;
 
     /**
      * Time to live for this caching resource
+     *
      * @var int
      */
     private $ttl;
@@ -93,7 +95,7 @@ class CacheCommon
     /**
      * Attempt to get an item from cache. First check local cache, if we don't find an item, then check the remote cache
      *
-     * @param string $cacheKey           Unique cache key
+     * @param string $cacheKey Unique cache key
      *
      * @return mixed|bool|null Return false if nothing is found, null is query data is empty; otherwise return data
      */
@@ -118,9 +120,6 @@ class CacheCommon
                 //Set a registry entry for MemCache
                 $this->setToRegistry($cacheKey, 'Cache::get()');
 
-                //Try to set the same data to local
-                $this->setToCache($cacheKey, $data);
-
                 //If data is not the result of an empty query, return it, otherwise return null.
                 return $data !== self::EMPTY_RESULT_CACHE_VALUE ? $data : null;
             }
@@ -143,8 +142,8 @@ class CacheCommon
                 } else { //Sleep, and call recursively
 
                     usleep(self::LOCK_SLEEP_MICROSECONDS + rand(-50000, 50000));
-                    
-                    $this->getFromCache($cacheKey);
+
+                    return $this->getFromCache($cacheKey);
                 }
             }
         }
@@ -152,7 +151,7 @@ class CacheCommon
     }
 
     /**
-     * Attempt to set something to cache. First set to local, then to remote
+     * Attempt to set something to cache
      *
      * @param string $cacheKey Cache key
      * @param mixed  $data     Data to store in cache
@@ -166,51 +165,23 @@ class CacheCommon
             $data = self::EMPTY_RESULT_CACHE_VALUE;
         }
 
-        /**
-         * Was the data set to local cache?
-         *
-         * @var bool
-         */
-        $localSetBool = false;
+        if (isset($this->adapter) && !empty($this->adapter)) {
 
-        /**
-         * Was the data set to remote?
-         *
-         * @var bool
-         */
-        $remoteSetBool = false;
-
-        //Set to local
-        if (isset($this->_local) && !empty($this->_local)) {
-
-            if ($this->_local->set($cacheKey, $data, $localTTL)) { //Local data set success
-
-                //Set an APC registry listener (if enabled)
-                $this->setToRegistry($cacheKey, 'Local::set()');
-
-                $localSetBool = true;
-            }
-        }
-
-        //Set to remote
-        if (isset($this->_remote) && !empty($this->_remote) && $shouldSetRemote) {
-
-            if ($this->_remote->set($cacheKey, $data, $remoteTTL)) { //Remote data set success
+            if ($this->adapter->set($cacheKey, $data, $this->ttl)) {
 
                 //Set a memcache registry listener
-                $this->setToRegistry($cacheKey, 'Remote::set()');
-
-                $remoteSetBool = true;
+                $this->setToRegistry($cacheKey, 'Cache::set()');
 
                 //Stampede protection has been turned on
-                if ($stampedeProtection) {
-
+                if ($this->stampedeProtection) {
                     //Set stale data to cache. Stale data is set to remote only!
-                    $this->_setStaleDataToCache($cacheKey, $data, $remoteTTL);
+                    $this->setStaleDataToCache($cacheKey, $data);
                 }
             }
+        } else {
+            return false;
         }
-        return ($remoteSetBool || $localSetBool) ? true : false;
+        return true;
     }
 
     /**
@@ -220,22 +191,13 @@ class CacheCommon
      *
      * @return bool|null
      */
-    protected function _deleteFromCache($cacheKey)
+    protected function deleteFromCache($cacheKey)
     {
-        $didLocalDelete = false;
-        $didRemoteDelete = false;
-
-        //Delete from local
-        if (isset($this->_local) && !empty($this->_local)) {
-            $didLocalDelete = $this->_local->delete($cacheKey);
+        if (isset($this->adapter) && !empty($this->adapter)) {
+            return $this->adapter->delete($cacheKey);
         }
 
-        //Delete from remote
-        if (isset($this->_remote) && !empty($this->_remote)) {
-            $didRemoteDelete = $this->_remote->delete($cacheKey);
-        }
-
-        return ($didRemoteDelete || $didLocalDelete) ? true : false;
+        return false;
     }
 
     /**
@@ -254,10 +216,10 @@ class CacheCommon
          *
          * @var string
          */
-        $staleCacheKey = $this->_getStaleCacheKey($cacheKey);
+        $staleCacheKey = $this->getStaleCacheKey($cacheKey);
 
-        if (isset($this->_remote) && !empty($this->_remote)) {
-            $data = $this->_remote->get($staleCacheKey);
+        if (isset($this->adapter) && !empty($this->adapter)) {
+            $data = $this->adapter->get($staleCacheKey);
         }
 
         return !empty($data) ? $data : null;
@@ -267,44 +229,43 @@ class CacheCommon
      * Set an old copy of data to cache.
      * This will only ever get called if stampede protection is set to true.
      *
-     * @param string $cacheKey  Cache Key
-     * @param string $data      The data to store as an old version i.e. this data could potentially be stale
-     * @param int    $remoteTTL Remote cache time to live
+     * @param string $cacheKey Cache Key
+     * @param string $data     The data to store as an old version i.e. this data could potentially be stale
      *
      * @return bool
      */
-    private function _setStaleDataToCache($cacheKey, $data, $remoteTTL)
+    private function setStaleDataToCache($cacheKey, $data)
     {
         /**
          * Old cache key name
          *
          * @var string
          */
-        $staleCacheKey = $this->_getStaleCacheKey($cacheKey);
+        $staleCacheKey = $this->getStaleCacheKey($cacheKey);
 
         /**
-         * Did the old data set to remote cache?
+         * Did we succeed in our attempt to save stale data to cache?
          *
          * @var bool
          */
-        $staleRemoteDataSetBool = false;
+        $didSetStale = false;
 
-        if (isset($this->_remote) && !empty($this->_remote)) {
+        if (isset($this->adapter) && !empty($this->adapter)) {
 
-            $remoteCacheTTLSeconds = $remoteTTL + self::STALE_DATA_TTL_SECONDS;
+            $staleTTL = $this->ttl + self::STALE_DATA_TTL_SECONDS;
 
             //If the data is empty, set the empty result key
             $data = !empty($data) ? $data : self::EMPTY_RESULT_CACHE_VALUE;
 
-            $staleRemoteDataSetBool = (bool)$this->_remote->set($staleCacheKey, $data, $remoteCacheTTLSeconds);
+            $didSetStale = (bool)$this->adapter->set($staleCacheKey, $data, $staleTTL);
 
-            if ($staleRemoteDataSetBool) {
+            if ($didSetStale) {
 
-                $this->setToRegistry($cacheKey, 'Remote::staleSet()');
+                $this->setToRegistry($cacheKey, 'Cache::staleSet()');
             }
         }
 
-        return $staleRemoteDataSetBool;
+        return $didSetStale;
     }
 
     /**
@@ -342,8 +303,7 @@ class CacheCommon
                 'cacheKey'  => $cacheKey,
                 'cacheBool' => (int)$this->_cacheBool,
                 'stampede'  => (int)$this->getStampedeProtection(),
-                'localTTL'  => (int)$this->_localCacheTTLCommon,
-                'remoteTTL' => (int)$this->_remoteCacheTTLCommon,
+                'TTL'       => (int)$this->ttl,
                 'elapse'    => $elapse,
                 'query'     => $query
             )
@@ -365,7 +325,7 @@ class CacheCommon
          *
          * @var string
          */
-        $lockKey = $this->_getLockCacheKey($cacheKey);
+        $lockKey = $this->getLockCacheKey($cacheKey);
 
         /**
          * Does the lock exist
@@ -374,11 +334,11 @@ class CacheCommon
          */
         $lockExistsBool = false;
 
-        if (isset($this->_remote) && !empty($this->_remote)) {
+        if (isset($this->adapter) && !empty($this->adapter)) {
 
             $this->setToRegistry($cacheKey, 'MemCache::lockExists()');
 
-            $lockExistsBool = $this->_remote->get($lockKey);
+            $lockExistsBool = $this->adapter->get($lockKey);
         }
 
         return (bool)$lockExistsBool;
@@ -392,14 +352,14 @@ class CacheCommon
      * @return bool
      * @throws CacheException
      */
-    protected function _nixLock($cacheKey)
+    protected function nixLock($cacheKey)
     {
         /**
          * Name of the lock key
          *
          * @var string
          */
-        $lockKey = $this->_getLockCacheKey($cacheKey);
+        $lockKey = $this->getLockCacheKey($cacheKey);
 
         /**
          * Did this lock successfully delete
@@ -408,11 +368,11 @@ class CacheCommon
          */
         $didLockDeleteBool = false;
 
-        if (isset($this->_remote) && !empty($this->_remote)) {
+        if (isset($this->adapter) && !empty($this->adapter)) {
 
-            $this->setToRegistry($cacheKey, 'Remote::lockNix()');
+            $this->setToRegistry($cacheKey, 'Cache::lockNix()');
 
-            $didLockDeleteBool = $this->_remote->delete($lockKey);
+            $didLockDeleteBool = $this->adapter->delete($lockKey);
         }
 
         return (bool)$didLockDeleteBool;
@@ -425,14 +385,14 @@ class CacheCommon
      *
      * @return bool
      */
-    protected function _createLock($cacheKey)
+    protected function createLock($cacheKey)
     {
         /**
          * Name of the lock key
          *
          * @var string
          */
-        $lockKey = $this->_getLockCacheKey($cacheKey);
+        $lockKey = $this->getLockCacheKey($cacheKey);
 
         /**
          * Did the lock creation succeed?
@@ -441,35 +401,17 @@ class CacheCommon
          */
         $didCreateLockBool = false;
 
-        if (isset($this->_remote) && !empty($this->_remote)) {
+        if (isset($this->adapter) && !empty($this->adapter)) {
 
-            $didCreateLockBool = $this->_remote->set($lockKey, $value = 1, self::LOCK_TTL_SECONDS);
+            $didCreateLockBool = $this->adapter->set($lockKey, $value = 1, self::LOCK_TTL_SECONDS);
 
             if ($didCreateLockBool) {
 
-                $this->setToRegistry($cacheKey, 'Remote::lockCreate()');
+                $this->setToRegistry($cacheKey, 'Cache::lockCreate()');
             }
         }
 
         return (bool)$didCreateLockBool;
-    }
-
-    /**
-     * Generate a cache key for this query, ensure its uniqueness
-     *
-     * @return bool
-     * @throws CacheException
-     */
-    protected function _generateCacheKey()
-    {
-        $cacheKey = md5(Config::$_currentTagVersion . $this->getQuery());
-
-        if (!empty($cacheKey)) {
-
-            $this->_cacheKey = $cacheKey;
-        }
-
-        return !empty($this->_cacheKey) ? true : false;
     }
 
     /**
@@ -479,7 +421,7 @@ class CacheCommon
      *
      * @return string
      */
-    private function _getStaleCacheKey($cacheKey)
+    private function getStaleCacheKey($cacheKey)
     {
         return 'old' . $cacheKey;
     }
@@ -491,33 +433,8 @@ class CacheCommon
      *
      * @return string
      */
-    private function _getLockCacheKey($cacheKey)
+    private function getLockCacheKey($cacheKey)
     {
         return 'lock' . $cacheKey;
     }
-
-//    public function get($key)
-//    {
-//        return $this->cache->get($key);
-//    }
-//
-//    public function set($key, $val, $ttl)
-//    {
-//        return $this->cache->set($key, $val, $ttl);
-//    }
-//
-//    public function nix($key)
-//    {
-//        return $this->cache->delete($key);
-//    }
-//
-//    public function has($key)
-//    {
-//        return $this->cache->has($key);
-//    }
-//
-//    public function clearCache()
-//    {
-//        return $this->cache->clearCache();
-//    }
 }
